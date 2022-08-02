@@ -1,0 +1,22 @@
+name: Build and push image
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: adopt-hotspot
+          java-version: 17
+      - uses: gradle/gradle-build-action@v2
+      - name: Jib build and push
+        env:
+          GHCR_PROJECT: limitium
+          GHCR_APP: cicd-demo
+          GHCR_TOKEN: ${{ secrets.GHCR }}
+        run: ./gradlew jib -Djib.to.image=ghcr.io/$GHCR_PROJECT/$GHCR_APP:latest -Djib.to.auth.username=$GHCR_PROJECT -Djib.to.auth.password=$GHCR_TOKEN

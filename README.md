@@ -1,14 +1,19 @@
+## Build
 Build image locally with docker and push it in local repo
 ```shell
 ./gradlew jibDockerBuild
 ```
+Now `limitium/cicd-demo` image is available and can be tested via TestContainers
 
-Build image in CI and push it into ghcr.io
-```shell
-./gradlew jib
-```
-
-Test image with TestContainers
 ```shell
 ./gradlew test
+```
+
+## Publish
+Build image w/o docker demon and push tar to  ghcr.io
+```shell
+./gradlew jib \
+    -Djib.to.image=ghcr.io/limitium/cicd-demo:latest \
+    -Djib.to.auth.username=limitium \
+    -Djib.to.auth.password={ghp_TOKEN}
 ```

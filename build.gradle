@@ -12,7 +12,12 @@ sourceCompatibility = '17'
 
 
 jib {
-    to.image = 'limitium/cicd-demo'
+    to{
+        image = 'limitium/cicd-demo'
+    }
+    from {
+        image = 'openjdk:17-slim'
+    }
 }
 
 repositories {
