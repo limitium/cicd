@@ -1,3 +1,4 @@
+/* (C)2022 */
 package com.example.cicd;
 
 import org.springframework.boot.SpringApplication;
@@ -13,12 +14,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class CicdApplication {
 
     @GetMapping("/")
-    public @ResponseBody String front(){
+    public @ResponseBody String front() {
         return "hey!";
     }
 
     public static void main(String[] args) {
         SpringApplication.run(CicdApplication.class, args);
     }
-
 }

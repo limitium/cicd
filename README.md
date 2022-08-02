@@ -1,3 +1,8 @@
+## Checkstyle 
+Reformat project files according google checkstyle via
+```shell
+./gradlew spotlessApply
+```
 ## Build
 Build image locally with docker and push it in local repo
 ```shell
