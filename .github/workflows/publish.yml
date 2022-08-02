@@ -18,5 +18,5 @@ jobs:
         env:
           GHCR_PROJECT: limitium
           GHCR_APP: cicd-demo
-          GHCR_TOKEN: ${{ secrets.GHCR }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: ./gradlew jib -Djib.to.image=ghcr.io/$GHCR_PROJECT/$GHCR_APP:latest -Djib.to.auth.username=$GHCR_PROJECT -Djib.to.auth.password=$GHCR_TOKEN
