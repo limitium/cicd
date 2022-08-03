@@ -2,7 +2,7 @@
 ```shell
 ./gradlew build
 ```
-Will run `:spotlessJavaCheck` task to check code on style violations
+Will run `:spotlessJavaCheck` task to check code for style violations
 
 Code can be reformated according to style rules via
 ```shell
