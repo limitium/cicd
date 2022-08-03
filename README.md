@@ -1,5 +1,10 @@
 ## Checkstyle 
-Reformat project files according google checkstyle via
+```shell
+./gradlew build
+```
+Will run `:spotlessJavaCheck` task to check code on style violations
+
+Code can be reformated according to style rules via
 ```shell
 ./gradlew spotlessApply
 ```

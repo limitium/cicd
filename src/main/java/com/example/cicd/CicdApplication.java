@@ -14,7 +14,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class CicdApplication {
 
     @GetMapping("/")
-    public @ResponseBody String front() {
+    public
+    @ResponseBody
+    String front() {
         return "hey!";
     }
 
