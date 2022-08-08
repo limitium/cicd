@@ -2,9 +2,10 @@ plugins {
 	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
-
+	
+	// Spotless plugin
 	id "com.diffplug.spotless" version "6.9.0"
-
+	// Jib plugin
 	id 'com.google.cloud.tools.jib' version '3.2.1'
 }
 
@@ -13,6 +14,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 
+//The simplest image definition  
 jib {
 	to{
 		image = 'limitium/cicd-demo'
@@ -41,6 +43,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+//Define format rules
 spotless {
 	// optional: limit format enforcement to just the files changed by this feature branch
 	ratchetFrom 'origin/master'
@@ -55,17 +58,7 @@ spotless {
 		endWithNewline()
 	}
 	java {
-		// Use the default importOrder configuration
-		importOrder()
-		removeUnusedImports()
-
-		// don't need to set target, it is inferred from java
-
 		// apply a specific flavor of google-java-format
 		googleJavaFormat('1.12.0').aosp().reflowLongStrings()
-		// make sure every file has the following copyright header.
-		// optionally, Spotless can set copyright years by digging
-		// through git history (see "license" section below)
-		licenseHeader '/* (C)$YEAR */'
 	}
 }
