@@ -1,3 +1,5 @@
+# jib with github packages and spotless example
+
 ## Checkstyle 
 ```shell
 ./gradlew build
